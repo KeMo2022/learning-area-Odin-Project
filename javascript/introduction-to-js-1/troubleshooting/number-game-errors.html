@@ -42,12 +42,21 @@
 </body>
 
 <script>
-  let randomNumber = Math.floor(Math.random()) + 1;
+  // Had to add "*100"
+  let randomNumber = Math.floor(Math.random() * 100) + 1;
 
   const guesses = document.querySelector('.guesses');
   const lastResult = document.querySelector('.lastResult');
-  const lowOrHi = document.querySelector('lowOrHi');
+  // Had to add "." in front of "lowOrHi"
+
+  const lowOrHi = document.querySelector('.lowOrHi');
+
+  // Had to add this line
+  console.log(randomNumber);
   const guessSubmit = document.querySelector('.guessSubmit');
+
+  //Had to add this line as well
+  console.log(lowOrHi);
   const guessField = document.querySelector('.guessField');
 
   let guessCount = 1;
@@ -83,7 +92,7 @@
     guessField.value = '';
     guessField.focus();
   }
-  guessSubmit.addeventListener('click', checkGuess);
+  guessSubmit.addEventListener('click', checkGuess);//Had to change "e" to "E" on "event"
 
   function setGameOver() {
 	  guessField.disabled = true;
@@ -91,7 +100,7 @@
 	  resetButton = document.createElement('button');
 	  resetButton.textContent = 'Start new game';
 	  document.body.appendChild(resetButton);
-	  resetButton.addeventListener('click', resetGame);
+	  resetButton.addEventListener('click', resetGame);// Had to change "e" to "E" on "event"
   }
 
   function resetGame() {
@@ -110,7 +119,11 @@
 
 	  lastResult.style.backgroundColor = 'white';
 
-	  randomNumber = Math.floor(Math.random()) + 1;
+    //Had to add "*100"
+	  randomNumber = Math.floor(Math.random()* 100) + 1;
+
+    //Had to add this line
+    console.log(randomNumber);
   }
 </script>
 </html>
